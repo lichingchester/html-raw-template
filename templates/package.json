@@ -1,0 +1,33 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "A raw HTML project",
+  "private": true,
+  "engines": {
+    "node": "^18"
+  },
+  "scripts": {
+    "dev": "gulp dev --gulpfile ./scripts/gulpfile.js",
+    "build": "gulp build --gulpfile ./scripts/gulpfile.js --env production"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "del": "^8.0.0",
+    "ejs": "^3.1.10",
+    "front-matter": "^4.0.2",
+    "gulp": "^5.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-load-plugins": "^2.0.8",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "minimist": "^1.2.8"
+  }
+}
