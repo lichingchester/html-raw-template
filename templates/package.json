@@ -6,9 +6,12 @@
   "engines": {
     "node": "^18"
   },
+  "type": "module",
   "scripts": {
     "dev": "gulp dev --gulpfile ./scripts/gulpfile.js",
-    "build": "gulp build --gulpfile ./scripts/gulpfile.js --env production"
+    "build": "gulp build --gulpfile ./scripts/gulpfile.js --env production",
+    "test-dev": "gulp dev --gulpfile ./scripts/index.js",
+    "test-build": "gulp build --gulpfile ./scripts/index.js --env production"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",

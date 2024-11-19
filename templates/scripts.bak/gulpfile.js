@@ -2,7 +2,8 @@ const gulp = require("gulp");
 const gulpLoadPlugins = require("gulp-load-plugins");
 const autoprefixer = require("autoprefixer");
 const browserSync = require("browser-sync").create();
-const { deleteAsync } = require("del");
+// const { deleteAsync } = require("del");
+const del = await import("del").then((module) => module.default);
 
 const minimist = require("minimist");
 
@@ -63,16 +64,16 @@ const DEST = {
 /**
  * delete dist folder first
  */
-const clean = () => deleteAsync(DEST.default, { force: true });
+const clean = async () => await del(DEST.default, { force: true });
 
 /**
  * delete specific folder
  */
-const cleanHTML = () => deleteAsync(DEST.html, { force: true });
-const cleanCSS = () => deleteAsync(DEST.css, { force: true });
-const cleanJS = () => deleteAsync(DEST.js, { force: true });
-const cleanVendor = () => deleteAsync(DEST.vendor, { force: true });
-const cleanAssets = () => deleteAsync(DEST.assetsClean, { force: true });
+const cleanHTML = async () => await del(DEST.html, { force: true });
+const cleanCSS = async () => await del(DEST.css, { force: true });
+const cleanJS = async () => await del(DEST.js, { force: true });
+const cleanVendor = async () => await del(DEST.vendor, { force: true });
+const cleanAssets = async () => await del(DEST.assetsClean, { force: true });
 
 /**
  * copy assets file
