@@ -47,6 +47,11 @@ const defaultConfig = {
     outputPath: path.join(projectRoot, "./dist"),
   },
   data: getData(),
+  bundle: {
+    js: {
+      order: [],
+    },
+  },
 };
 
 const config = Object.assign({}, defaultConfig, userConfig);
