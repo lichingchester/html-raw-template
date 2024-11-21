@@ -1,9 +1,12 @@
 import { parse, join } from "path";
 import { sync } from "glob";
-import { mkdirsSync, readFileSync, writeFileSync } from "fs-extra";
+import { readFileSync, writeFileSync } from "fs";
+import { mkdirsSync } from "fs-extra/esm";
 import frontMatter from "front-matter";
+import ejs from "ejs";
 
-import { config } from "./config.js";
+import { isProd } from "./env.js";
+import { config, projectRoot } from "./config.js";
 
 const configSrcPath = config.build.srcPath;
 const configDistPath = config.build.outputPath;
@@ -46,6 +49,7 @@ const processFile = (file) => {
     case ".ejs":
       pageContent = ejs.render(pageData.body, templateConfig, {
         filename: `${configSrcPath}/pages/${file}`,
+        root: projectRoot,
       });
       break;
     default:
@@ -61,16 +65,21 @@ const processFile = (file) => {
     Object.assign({}, templateConfig, {
       body: pageContent,
       filename: layoutFileName,
-    })
+    }),
+    {
+      root: projectRoot,
+    }
   );
+
+  // save the html file
+  writeFileSync(`${destPath}/${fileData.name}.html`, completePage);
+  console.error("compiled ", `${destPath}/${fileData.name}.html`);
 };
 
 /**
  * Compile EJS template
- *
- * @param {Boolean} isProd is production or development
  */
-const compile = (isProd) => {
+const compile = () => {
   console.log("start compile");
 
   const files = readFiles();
