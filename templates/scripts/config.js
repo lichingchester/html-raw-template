@@ -49,7 +49,7 @@ const defaultConfig = {
   data: getData(),
   bundle: {
     js: {
-      order: [],
+      order: ["jquery-*/**/*.js", "hammer-*/**/*.js", "bootstrap-*/**/*.js"],
     },
   },
 };

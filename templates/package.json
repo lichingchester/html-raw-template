@@ -8,10 +8,9 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "gulp dev --gulpfile ./scripts/gulpfile.js",
-    "build": "gulp build --gulpfile ./scripts/gulpfile.js --env production",
-    "test-dev": "gulp dev --gulpfile ./scripts/index.js",
-    "test-build": "gulp build --gulpfile ./scripts/index.js --env production"
+    "dev": "gulp dev --gulpfile ./scripts/index.js",
+    "build": "gulp build --gulpfile ./scripts/index.js --env production",
+    "start": "gulp start --gulpfile ./scripts/index.js --env production"
   },
   "dependencies": {
     "@babel/core": "^7.26.0",

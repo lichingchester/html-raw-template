@@ -1,8 +1,5 @@
 import { build } from "./build.js";
+import { dev } from "./dev.js";
+import { start } from "./start.js";
 
-function dev(cb) {
-  console.log("dev task");
-  cb();
-}
-
-export { dev, build };
+export { dev, build, start };
