@@ -178,11 +178,3 @@ export default {
   },
 };
 ```
-
-# Test locally
-
-```bash
-npm link
-cd playground
-html-raw-template init
-```

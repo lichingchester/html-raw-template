@@ -1,0 +1,30 @@
+{
+  "name": "html-raw-template",
+  "version": "0.2.0",
+  "description": "A HTML Raw Template Framework",
+  "main": "site.config.js",
+  "engines": {
+    "node": "^18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "html-raw-template": "./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lichingchester/html-raw-template.git"
+  },
+  "author": "lichingchester",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lichingchester/html-raw-template/issues"
+  },
+  "homepage": "https://github.com/lichingchester/html-raw-template#readme",
+  "dependencies": {
+    "@inquirer/prompts": "^7.1.0",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0"
+  }
+}
