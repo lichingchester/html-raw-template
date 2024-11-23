@@ -38,8 +38,8 @@ const getData = () => {
 
 const defaultConfig = {
   site: {
-    title: "Title | Template Base",
-    description: "Description | Template Base",
+    title: "Title | Template",
+    description: "Description | Template",
     basePath: ".",
   },
   build: {
