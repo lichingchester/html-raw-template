@@ -1,0 +1,11 @@
+<footer>
+  <p>Footer</p>
+
+  <ul>
+    <% data.menu.forEach(function(item, index) { %>
+    <li>
+      <a href="<%= item.href %>"> <%= item.name %> </a>
+    </li>
+    <% }); %>
+  </ul>
+</footer>
