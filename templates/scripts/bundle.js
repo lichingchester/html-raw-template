@@ -15,7 +15,7 @@ import htmlBeautify from "gulp-html-beautify";
 
 import { SOURCE, DEST } from "./constants.js";
 import { compile } from "./ejs.js";
-import { config } from "./config.js";
+import { getConfig } from "./config.js";
 import {
   cleanHTML,
   cleanCSS,
@@ -115,7 +115,7 @@ const bundleJS = () => {
     .src(SOURCE.vendor.js)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(order(config.bundle.js.order))
+    .pipe(order(getConfig().bundle.js.order))
     .pipe(concat("bundle.min.js"))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(DEST.vendor))

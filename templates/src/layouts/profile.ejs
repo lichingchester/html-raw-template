@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('/src/partials/head') %>
+  </head>
+  <body class="<%= page.bodyClass %>">
+    <!-- Skip to content -->
+    <a href="#skip-target" title="Skip to main content">Skip to main content</a>
+    <!-- Skip to content -->
+
+    <!-- Header start -->
+    <%- include('/src/partials/header') %>
+    <!-- Header end -->
+
+    <main>
+      <!-- Target for "skip to content" -->
+      <div
+        id="skip-target"
+        style="
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+        "
+      >
+        The detail of this page
+      </div>
+      <!-- Target for "skip to content" -->
+
+      <p>Profile Layout</p>
+
+      <%- body %>
+    </main>
+
+    <%- include('/src/partials/footer') %>
+
+    <!-- Scripts -->
+
+    <% if (isProd) { %>
+    <script src="<%= site.basePath %>/web/js/app.min.js"></script>
+    <% } else { %>
+    <script src="<%= site.basePath %>/web/js/app.js"></script>
+    <% } %>
+  </body>
+</html>

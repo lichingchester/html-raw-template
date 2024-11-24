@@ -166,7 +166,7 @@ export default {
     description: "Description | Template",
 
     // Default Site Base Path, ex: href="{basePath}/web/css/app.min.css"
-    basePath: ".",
+    basePath: "",
   },
 
   // Bundle Configuration

@@ -36,24 +36,26 @@ const getData = () => {
   return data;
 };
 
-const defaultConfig = {
-  site: {
-    title: "Title | Template",
-    description: "Description | Template",
-    basePath: ".",
-  },
-  build: {
-    srcPath: path.join(projectRoot, "./src"),
-    outputPath: path.join(projectRoot, "./dist"),
-  },
-  data: getData(),
-  bundle: {
-    js: {
-      order: ["jquery-*/**/*.js", "hammer-*/**/*.js", "bootstrap-*/**/*.js"],
+const getDefaultConfig = () => {
+  return {
+    site: {
+      title: "Title | Template",
+      description: "Description | Template",
+      basePath: "",
     },
-  },
+    build: {
+      srcPath: path.join(projectRoot, "./src"),
+      outputPath: path.join(projectRoot, "./dist"),
+    },
+    data: getData(),
+    bundle: {
+      js: {
+        order: ["jquery-*/**/*.js", "hammer-*/**/*.js", "bootstrap-*/**/*.js"],
+      },
+    },
+  };
 };
 
-const config = Object.assign({}, defaultConfig, userConfig);
+const getConfig = () => Object.assign({}, getDefaultConfig(), userConfig);
 
-export { config, projectRoot };
+export { getConfig, projectRoot };

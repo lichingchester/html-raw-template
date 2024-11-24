@@ -6,10 +6,10 @@ import frontMatter from "front-matter";
 import ejs from "ejs";
 
 import { isProd } from "./env.js";
-import { config, projectRoot } from "./config.js";
+import { getConfig, projectRoot } from "./config.js";
 
-const configSrcPath = config.build.srcPath;
-const configDistPath = config.build.outputPath;
+const configSrcPath = getConfig().build.srcPath;
+const configDistPath = getConfig().build.outputPath;
 
 /**
  * Read files in pages directory
@@ -38,7 +38,7 @@ const processFile = (file) => {
   const pageData = frontMatter(data);
 
   // get page config
-  const templateConfig = Object.assign({}, config, {
+  const templateConfig = Object.assign({}, getConfig(), {
     page: pageData.attributes,
     isProd: isProd,
   });
