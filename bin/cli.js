@@ -22,39 +22,36 @@ program
       // Check if directory is empty
       const isEmpty = await checkDirectory(currentDir);
       if (!isEmpty) {
-        const shouldContinue = await promptForOverwrite();
-        if (!shouldContinue) {
-          console.log("Operation cancelled");
-          process.exit(0);
-        }
+        console.log("Directory is not empty. Please clean it up first.");
+        process.exit(0);
       }
 
       // Get project details
-      const projectDetails = await promptForProjectDetails();
+      // const projectDetails = await promptForProjectDetails();
 
       // Copy template files
       const templateDir = path.join(__dirname, "..", "templates");
       await fs.copy(templateDir, currentDir);
 
       // Create package.json
-      const packageJson = {
-        name: projectDetails.projectName,
-        version: "1.0.0",
-        description: projectDetails.description,
-        scripts: {
-          start: "your-start-command",
-          build: "your-build-command",
-        },
-      };
+      // const packageJson = {
+      //   name: projectDetails.projectName,
+      //   version: "1.0.0",
+      //   description: projectDetails.description,
+      //   scripts: {
+      //     start: "your-start-command",
+      //     build: "your-build-command",
+      //   },
+      // };
 
-      await fs.writeJSON(path.join(currentDir, "package.json"), packageJson, {
-        spaces: 2,
-      });
+      // await fs.writeJSON(path.join(currentDir, "package.json"), packageJson, {
+      //   spaces: 2,
+      // });
 
       console.log("\n✨ Project initialized successfully!");
       console.log("\nNext steps:");
       console.log("1. npm install");
-      console.log("2. npm start\n");
+      console.log("2. npm run dev\n");
     } catch (error) {
       console.error("Error initializing project:", error);
       process.exit(1);

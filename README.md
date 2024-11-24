@@ -166,7 +166,7 @@ export default {
     description: "Description | Template",
 
     // Default Site Base Path, ex: href="{basePath}/web/css/app.min.css"
-    basePath: ".",
+    basePath: "",
   },
 
   // Bundle Configuration
@@ -177,12 +177,4 @@ export default {
     },
   },
 };
-```
-
-# Test locally
-
-```bash
-npm link
-cd playground
-html-raw-template init
 ```
